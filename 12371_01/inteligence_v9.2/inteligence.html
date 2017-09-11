@@ -1,0 +1,1121 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:cms><head>
+
+<!--<link id="cms_sys_link0" href="fpd/global.css" rel="stylesheet" type="text/css"/>
+<link id="cms_sys_link1" href="fpd/data_module.css" rel="stylesheet" type="text/css"/>
+-->
+<meta charset="UTF-8" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" >
+<title>智能服务平台</title>
+<!--[if !IE]><link href="style/Gte10" rel="stylesheet" type="text/css" /><!--<![endif]-->
+<link href="style/layout.css" rel="stylesheet" type="text/css" />
+<link href="style/inteligence.less" rel="stylesheet" type="text/less" />
+<!--[if !IE]><link href="style/inteligence.css" rel="stylesheet" type="text/css" /><!--<![endif]-->
+<link href="style/score.css" rel="stylesheet" type="text/css" />
+<link href="style/popup.css" rel="stylesheet" type="text/css" />
+
+<script src="javascript/tab.exam.js" type="text/javascript"></script>
+<script src="javascript/jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="javascript/inteligence.js" type="text/javascript"></script>
+<script type="text/javascript" src="javascript/less-1.7.3.min.js" ></script>
+<script src="javascript/reveal-model.js" type="text/javascript"></script>
+<script src="javascript/AppendAround.js" type="text/javascript"></script>
+<script src="javascript/comment.js"></script>
+<script type="text/javascript">
+	/*弹出层*/
+	$(function(){
+		
+		$(".showbox").click(function(){
+			$("#TB_overlayBG").css({
+				display:"block",height:$(document).height()
+			});
+			$(".box").css({
+				left:($("body").width()-$(".box").width())/2-20+"px",
+				top:($(window).height()-$(".box").height())/2-40+$(window).scrollTop()+"px",
+				display:"block"
+			});
+		});
+		$(".showbox1").click(function(){
+			$("#TB_overlayBG").css({
+				display:"block",height:$(document).height()
+			});
+			$(".box1").css({
+				left:($("body").width()-$(".box").width())/2-20+"px",
+				top:($(window).height()-$(".box").height())/2-40+$(window).scrollTop()+"px",
+				display:"block"
+			});
+		});
+		
+		$(".close").click(function(){
+			$("#TB_overlayBG").css("display","none");
+			$(".box ").css("display","none");
+			$(".box1 ").css("display","none");
+		});
+		$('#TB_overlayBG').click(function(){
+			$("#TB_overlayBG").css("display","none");
+			$(".box ").css("display","none");
+			$(".box1 ").css("display","none");
+		});
+		
+	})
+</script>
+<script type="text/javascript" >
+function openMore() {
+	window.location.href = 'search.jsp?sm=1';
+}
+function query(type) {
+	if("限用100字简要描述您的问题，比如“申请办理结婚证的流程”"==$("#q").val()){
+		QA.showMessage("0","<span style='color:red;'>输入内容不能为空哦，请输入您想知道的问题，再发送提问哦。</span>");
+		return;
+	}
+	if("1"==type){
+		var event = arguments.callee.caller.arguments[0] || window.event;//消除浏览器差异  
+		if (event.keyCode == 13) {
+			QA.query();
+			$('#q').val('');
+			var e = window.event||arguments[0];
+			e.returnValue = false;
+			return false;
+		}
+	}else{
+		QA.query();
+		$('#q').val('');
+	}
+}
+</script>
+<style type="text/css" id="cms_sys_height">
+#data_subnav{min-height:30px;_height:30px}
+#mod_int .modcon{min-height:423px;_height:423px}
+</style>
+<script id="cms_sys_jscfg">var Cfg={ path:'<%=contextPath+"/"%>', baseDomains:'<%=baseDomains%>', contextPath:'<%=contextPath%>', basePath:'<%=basePath%>' }</script>
+<script id="cms_sys_jstpl" src="fpd/tpl.js"></script>
+</head>
+<body>
+<div id="layout" class="wrapper">
+	<div id="frame_1" class="cmspage frame_1 clearfix">
+            <div class="box" style="display:none">
+                <h2><span></span><b style="font-size: 16px;">留言咨询</b><b class="primary-chu primary-color" style=";position:absolute;right:0px;top:0px;">详细留言</b><a href="#" class="close">×</a></h2>
+                <div class="mainlist">
+                   <div class="leave-message"> 
+                        <p style="padding: 10px 0;"><label>留言标题：</label><input type="text" value="" ></p>
+                        <div class="send-problem">
+                            <label>留言内容：</label>
+                            <textarea name="text" id="qqq" onkeydown="" maxlength="150" placeholder="输入你要反馈的内容" style="box-shadow:none;"></textarea>
+                        </div>
+                        <div style="text-align:center;position:relative;"><a class="post-btn" href="javascript:;">提 交</a></div>
+                    </div>
+                </div>
+             </div>
+           <!-- <div id="TB_overlayBG"></div>-->
+            <div class="box1" style="display:none">
+                <h2><span></span><b style="font-size: 16px;">登入</b><cite class="tellphone" title="手机验证登入">手机验证登入<img src="images/reg-5.png" /></cite><a href="#" class="close">×</a></h2>
+                <div class="mainlist">
+                    <!--<div class="width1">
+                        <p style="background:#eee;padding: 10px 4px;text-align:center;">正在执行问题查询功能</p>
+                        <p style="padding:10px 0"><label>问题编号：</label><input type="text" value=""></p>
+                        
+                        <p style="padding:10px 0 0 0;"><label>验证码：</label><input type="text" value="" ></p> 
+                        
+                        <div style="text-align:center;padding-top: 10px;"><a class="post-btn" href="javascript:;">查询结果</a></div>
+                    </div>-->
+                    <form >
+                  <div class="name-field">
+                    <div class="form">
+                        <div class="regular">
+                            <P><!--<label>帐号：</label>--><input class="input-reg user-bg bg" type="text" required="" pattern="[a-zA-Z]+" placeholder="请输入用户名">
+                                <!--<small class="error"><i class="what">!</i>input输入框不能为空！</small>-->
+                            </P>
+                           <p><!--<label>密码：</label>--><input class="input-reg user-bg bg1" type="text" required="" pattern="[a-zA-Z]+" placeholder="请输入用户名" >
+                            <small class="error"><i class="what">!</i>input输入框不能为空！</small>
+                           </p>
+                           <p style="position:relative;"><!--<label>验证码：</label>--><input class="input-reg shree" type="text" required="" pattern="[a-zA-Z]+" placeholder="请输入验证码">
+                                <span data-tooltip="" class="has-tip img-tip" title="换一张"><img src="images/reg-4.png" class="check-img" alt=""></span>
+                                <small class="error1"><i class="what">!</i>input输入框不能为空！</small>
+                           </p>
+                        </div>
+                        <div class="tell">
+                            <P><!--<label>帐号：</label>--><input class="input-reg user-bg bg2" type="text" required="" placeholder="请输入手机号"></P>
+                            <p style="position:relative;"><!--<label>验证码：</label>--><input class="input-reg shree" type="text" required="" pattern="[a-zA-Z]+" placeholder="请输手机入验证码" >
+                            <span data-tooltip="" class="has-tip img-tip"><input type="button" id="btn-get-password" class="btn-get-password " value="获取手机验证码"></span></p>
+                        </div>
+                       <p> 
+                       <input  type="checkbox" checked="ture" aria-invalid="true" id="checkbox1"><label style="width:auto;" class="label-position f-12" for="checkbox1">下次自动登入</label>
+                       </p>
+                    </div>
+                   
+                    <div style="text-align:center;padding-top: 10px;"><a href="" class="login">登入</a></div>
+                    <p style="clearfix"><a href="" class="right primary-chu primary-color">忘记密码</a><a href="" class="primary-chu primary-color">免费注册</a></p>
+                    <div>
+                        <span class="solid-span"></span>
+                        <p class="f-12 p-ce-login">可以使用以下账号直接登入</p>
+                    </div>
+                    <div>
+                        <ul class="login-ul-pic clearfix">
+                          <li><a href="#" class="a-qq"></a></li>
+                          <li><a href="#" class="a-baidu"></a></li>
+                          <li><a href="#" class="a-weibo"></a></li>
+                          <li><a href="#" class="a-weixin"></a></li>
+                          <li><a href="#" class="a-kaikai"></a></li>
+                        </ul>
+                    </div>
+                  </div>
+                </form>
+                </div>
+             </div>
+		<div id="frame_header" class="header">
+			<div id="data_wap_logo" class="row wap_logo">
+				<img src="images/long-Logo.png">
+                <i class="bs-window"></i>
+                <a href="javascript:window.close()" class="cl-window"></a> 
+                <span class="menuicon click-block" reveal-model-id="problemSer"></span>  
+			</div>
+		</div>	
+		<div id="frame_main" class="main row">
+			<div id="frame_content" class="content">
+            	<div class="box-content sideInfo" id="problemSer">
+                	<h2>请选1择<a href="#" class="close-reveal-modal">×</a></h2>
+                    <div class="mainlist">
+                        <div class="modal_wrap"> 
+                        	<div class="left-off-canvas-menu hide-for-large" id="frame_canvas_menu" data-set="data_side"></div>
+                        </div>     
+                        <div class="btn-grop clearfix"> <a class="reveal-button right sure">确定</a> <a class="reveal-button close-reveal-modal right margin-r" aria-label="Close">取消</a> </div>
+                    </div>
+                </div>
+            	<div id="frame_content_wrapper" class="content_wrapper clearfix">
+					<div id="frame_chat_wrapper" class="chat_wrapper">
+						<div id="data_chat_wrapper" class="max_height">
+							<div class="login1">
+                                <p>您还未登录，登录之后ERobot更懂您，请点击<a  href="javascript:void(0);" class="logining showbox1">登入</a></p>
+                            </div>
+                            <div class="talk_box" id="talk_box">
+                                 <!--robot--> 	
+                                <div class="talk_robot clearfix" id="talk_robot"> 
+                                    <div class="photo_box"><p class="bg"><img src="images/inteligence_robot.gif"></p><p class="name">机器人</p></div>
+                                    <div class="robot_box  clearfix">
+                                    <div class="robot">
+                                      <div class="img"></div>
+                                     <div class="middle">
+                                        <div class="talk_con">
+                                            <ul>
+                                                <li>你好，我是智能问答机器人ERobot,可以回复你相关业务问题，请你尽量用一句最简单的话提问。</li>
+                                             
+                                            </ul>
+                                            <p class="desc">为了更好地解决你的问题，还不点击<a class="primary-color primary-chu" style="white-space: nowrap;" href="">我要体验!</a></p>
+                                            </div>
+                                         </div>
+                                     </div>
+                                     <div class="date">2014-02-18 15:07:51</div>
+                                     </div>         	
+                                </div>
+                                 <!--visitor--> 
+                                <div class="talk_visitor clearfix" id="talk_visitor" style="display: block;"> 
+                                    <div class="photo_box"><p class="bg"><img src="images/inteligence_me.gif"></p><p class="name">我</p></div>
+                                    <div class="visitor_box  clearfix">
+                                        <div class="visitor">
+                                         <div class="img1"></div>
+                                             <div class="middle">
+                                                <div class="talk_con">
+                                                    我要体验！
+                                                </div>
+                                             </div>
+                                         </div>
+                                        <div class="date">2014-02-18 15:07:51</div>
+                                     </div>         	
+                                </div>
+                                <!--robot-->
+                                <div class="talk_robot clearfix" id="robot_answer" style="display: block;"> 
+                                    <div class="photo_box"><p class="bg"><img src="images/inteligence_robot.gif"></p><p class="name">机器人</p></div>
+                                    <div class="robot_box  clearfix">
+                                        <div class="robot">
+                                          <div class="img"></div>
+                                         	<div class="middle">
+                                            	<div class="menu">
+                                                    <p class="desc1">欢迎使用功能菜单：</p>
+                                                    <ul class="clearfix">
+                                                        <li><a href="">1.引导体验</a></li>
+                                                        <li><a href="">2.常见问题</a></li>
+                                                        <li><a href="javascript:void(0);" class="showbox">3.留言咨询</a></li>
+                                                    </ul> 
+                                                </div>
+                                            </div>
+                                            
+                                         </div>
+                                         <div class="date">2014-02-18 15:07:51</div>
+                                     </div>         	
+                                </div>
+                                 <!--visitor--> 
+                                <div class="talk_visitor clearfix" style="display: block;"> 
+                                    <div class="photo_box"><p class="bg"><img src="images/inteligence_me.gif"></p><p class="name">我</p></div>
+                                    <div class="visitor_box  clearfix">
+                                        <div class="visitor">
+                                         <div class="img1"></div>
+                                         <div class="middle">
+                                            <div class="talk_con">
+                                                引导体验
+                                            </div>
+                                         </div>
+                                         </div>
+                                         <div class="date">2014-02-18 15:07:51</div>
+                                    </div>         	
+                                </div>
+                                 <!--robot--> 	
+                                <div class="talk_robot clearfix" style="display: block;"> 
+                                    <div class="photo_box"><p class="bg"><img src="images/inteligence_robot.gif"></p><p class="name">机器人</p></div>
+                                    <div class="robot_box  clearfix">
+                                    <div class="robot">
+                                     <div class="img"></div> 
+                                     <div class="middle">
+                                        <div class="talk_con">
+                                        	<p class="desc">在聊天的过程中请你尽量用一句最简单的话提问。例如你可以输入问题"入党流程"。</p>
+                                            <ul class="guide">
+                                                <li><a>缴纳党费</a>(点击体验)</li>
+                                                <li><a>党费收缴标准</a>(点击体验)</li>
+                                                <li><a>党员职责</a>(点击体验)</li>
+                                            </ul>
+                                            </div>
+                                         </div>
+                                     	
+                                     </div>
+                                     <div class="date">2014-02-18 15:07:51</div>
+                                     </div>         	
+                                </div>
+                                <!--visitor--> 
+                                <div class="talk_visitor clearfix" style="display: block;"> 
+                                    <div class="photo_box"><p class="bg"><img src="images/inteligence_me.gif"></p><p class="name">我</p></div>
+                                    <div class="visitor_box  clearfix">
+                                        <div class="visitor">
+                                        <div class="img1"></div>
+                                         <div class="middle">
+                                            <div class="talk_con">
+                                                 党费收缴标准
+                                            </div>
+                                         </div>
+                                         </div>
+                                         <div class="date">2014-02-18 15:07:51</div>
+                                    </div>         	
+                                </div>
+                                 <!--robot--> 	
+                                <div class="talk_robot clearfix" style="display: block;"> 
+                                    <div class="photo_box"><p class="bg"><img src="images/inteligence_robot.gif"></p><p class="name">机器人</p></div>
+                                    <div class="robot_box  clearfix">
+                                    <div class="robot">
+                                    <div class="img"></div>
+                                    	<div class="middle">
+                                        	<div class="talk_con">
+                                        		<p class="desc1">最新党费收缴标准</p>
+                                            	<p>一、党费收缴</p>
+                                                <div class="detail1">
+                                            	<ul>
+                                                    <li>第一条 按月领取工资的党员，每月以工资总额中相对固定的、经常性的工资收入（税后）为计算基数，按规定比例交纳党费。</li>
+                                                    <li>第二条 党员交纳党费的比例为：每月工资收入（税后）在3000元以下（含3000元）者，交纳月工资收入的0．5％；3000元以上至5000元（含5000元）者，交纳1％；5000元以上至10000元（含10000元）者，交纳1．5％；10000元以上者，交纳2％。</li>
+                                                    <li>第三条 实行年薪制人员中的党员，每月以当月实际领取的薪酬收入为计算基数，参照第一条、第二条规定交纳党费。</li>
+                                                    <li>第四条 不按月取得收入的个体经营者等人员中的党员，每月以个人上季度月平均纯收入为计算基数，参照第一条、第二条规定交纳党费。</li>
+                                                    <li>第五条　离退休干部、职工中的党员，每月以实际领取的离退休费总额或养老金总额为计算基数，5000元以下（含5000元）的按0．5％交纳党费，5000元以上的按1％交纳党费。</li>
+                                                </ul>
+                                                </div>
+                                        	</div>
+                                            <div class="more_info1">
+                                                <div class="detail1">
+                                                    <ul>
+                                                        <li>第六条　农民党员每月交纳党费0．2元－1元。学生党员、下岗失业的党员、依靠抚恤或救济生活的党员、领取当地最低生活保障金的党员，每月交纳党费0．2元。</li>
+                                                        <li>第七条　交纳党费确有困难的党员，经党支部研究，报上一级党委批准后，可以少交或免交党费。</li>
+                                                        <li>第八条　预备党员从支部大会通过其为预备党员之日起交纳党费。</li>
+                                                        <li>第九条　党员一般应当向其正式组织关系所在的党支部交纳党费。</li>
+                                                        <li>第十条　党员工资收入发生变化后，从按新工资标准领取工资的当月起，以新的工资收入为基数，按照规定比例交纳党费。</li>
+                                                    </ul>
+                                                </div> 
+                                            </div>
+                                            <span class="more-btn" style="display:block;*position:relative;*height:31px;*width:100%;width:100%;height:31px;">
+                                            	<a class="more_btn primary-ch" id="more_btn1">查看详细信息<i class="arrow_down"></i></a>
+                                            </span>
+                                         </div>
+                                     </div>
+                                     <div class="date">2014-02-18 15:07:51</div>
+                                     </div>         	
+                                </div>
+                                 <!--visitor--> 
+                                 <div class="talk_visitor clearfix" style="display: block;"> 
+                                    <div class="photo_box"><p class="bg"><img src="images/inteligence_me.gif"></p><p class="name">我</p></div>
+                                    <div class="visitor_box  clearfix">
+                                        <div class="visitor">
+                                         <div class="img1"></div>
+                                         <div class="middle">
+                                            <div class="talk_con">
+                                                    天气预报
+                                            </div>
+                                         </div>
+                                         </div>
+                                         <div class="date">2014-02-18 15:07:51</div>
+                                    </div>         	
+                                </div>
+                                 <!--robot--> 
+                                <div class="talk_robot clearfix" style="display: block;"> 
+                                    <div class="photo_box"><p class="bg"><img src="images/inteligence_robot.gif"></p><p class="name">机器人</p></div>
+                                    <div class="robot_box  clearfix">
+                                        <div class="robot">
+                                        <div class="img"></div>
+                                         <div class="middle">
+                                            <div class="talk_con" id="weather_block">    
+                                                <div class="weather_wrapper">
+                                                    <div class="today">
+                                                        <div class="time_info">
+                                                            <span class="city" id="cityName">福州</span>
+                                                            <span class="date" id="date">周日 09月28日 （实时：27℃）</span>
+                                                        </div>
+                                                        <div class="weather_info">
+                                                            <span class="icon"><img id="weather_icon" src="images/weather/day/01.png"></span>
+                                                            <span class="temperature" id="weather_temp">34 ~ 25℃</span>
+                                                            <span class="weather" id="weather">多云</span>
+                                                            <span class="wind" id="weather_wind">微风</span>
+                                                            <span class="air" id="pm25">空气质量： 71 良</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="future">
+                                                        <ul class="clearfix">
+                                                            <li>
+                                                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                                  <tbody><tr>
+                                                                    <td><span class="data" id="date_1">周一</span></td>
+                                                                  </tr>
+                                                                  <tr>
+                                                                    <td><span class="icon"><img id="weather_icon_1" src="images/weather/day/01.png"></span></td>
+                                                                  </tr>
+                                                                  <tr>
+                                                                    <td><span class="weather" id="weather_1">多云</span></td>
+                                                                  </tr>
+                                                                  <tr>
+                                                                    <td><span class="temperature" id="weather_temp_1">34 ~ 25℃</span></td>
+                                                                  </tr>
+                                                                </tbody></table>
+                                                            </li>
+                                                            <li>
+                                                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                                  <tbody><tr>
+                                                                    <td><span class="data" id="date_2">周二</span></td>
+                                                                  </tr>
+                                                                  <tr>
+                                                                    <td><span class="icon"><img id="weather_icon_2" src="images/weather/day/01.png"></span></td>
+                                                                  </tr>
+                                                                  <tr>
+                                                                    <td><span class="weather" id="weather_2">阵雨</span></td>
+                                                                  </tr>
+                                                                  <tr>
+                                                                    <td><span class="temperature" id="weather_temp_2">34 ~ 25℃</span></td>
+                                                                  </tr>
+                                                                </tbody></table>
+                                                            </li>
+                                                            <li>
+                                                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                                  <tbody><tr>
+                                                                    <td><span class="data" id="date_3">周三</span></td>
+                                                                  </tr>
+                                                                  <tr>
+                                                                    <td><span class="icon"><img id="weather_icon_3" src="images/weather/day/03.png"></span></td>
+                                                                  </tr>
+                                                                  <tr>
+                                                                    <td><span class="weather" id="weather_3">阵雨</span></td>
+                                                                  </tr>
+                                                                  <tr>
+                                                                    <td><span class="temperature" id="weather_temp_3">34 ~ 25℃</span></td>
+                                                                  </tr>
+                                                                </tbody></table>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="more_info">
+                                                          <div class="detail" id="weather_detail">
+                                                            <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-2">
+                                                                <li id="tit_block">
+                                                                    <div class="tit" id="tit_title">穿衣指数：炎热</div>
+                                                                    <p id="tit_detail">天气炎热，建议着短衫、短裙、短裤、薄型T恤衫等清凉夏季服装。</p>
+                                                                </li>
+                                                                <li>
+                                                                    <div class="tit">洗车指数：较适宜</div>
+                                                                    <p>较适宜洗车，未来一天无雨，风力较小，擦洗一新的汽车至少能保持一天。</p>
+                                                                </li>
+                                                                <li>
+                                                                    <div class="tit">旅游指数：较适宜</div>
+                                                                    <p>天气较好，温度较高，天气较热，但有微风相伴，还是比较适宜旅游的，不过外出时要注意防暑防晒哦！</p>
+                                                                </li>
+                                                                <li>
+                                                                    <div class="tit">感冒指数：少发</div>
+                                                                    <p>各项气象条件适宜，发生感冒机率较低。但请避免长期处于空调房间中，以防感冒。</p>
+                                                                </li>
+                                                                <li>
+                                                                    <div class="tit">运动指数：较适宜</div>
+                                                                    <p>天气较好，户外运动请注意防晒，推荐您在室内进行低强度运动。</p>
+                                                                </li>
+                                                                <li>
+                                                                    <div class="tit">紫外线强度：中等</div>
+                                                                    <p>属中等强度紫外线辐射天气，外出时建议涂擦SPF高于15、PA+的防晒护肤品，戴帽子、太阳镜。</p>
+                                                                </li>
+                                                            </ul>
+                                                        </div> 
+                                            		</div>
+                                                    <span class="more-btn" style="display:block;*position:relative;*height:31px;*width:100%;width:100%;height:31px;">
+                                                        <a class="more_btn primary-ch" id="more_btn">查看详细信息<i class="arrow_down"></i></a>
+                                                    </span>
+                                                </div>                            
+                                            </div>
+                                         </div>
+                                         </div>
+                                         <div class="date">2014-02-18 15:07:51</div>
+                                    </div>         	
+                                </div>
+                                <!--visitor--> 
+                                <div class="talk_visitor clearfix" style="display: block;"> 
+                                    <div class="photo_box"><p class="bg"><img src="images/inteligence_me.gif"></p><p class="name">我</p></div>
+                                    <div class="visitor_box  clearfix">
+                                        <div class="visitor">
+                                         <div class="img1"></div>
+                                         <div class="middle">
+                                            <div class="talk_con">
+                                                我要留言
+                                            </div>
+                                         </div>
+                                         </div>
+                                         <div class="date">2014-02-18 15:07:51</div>
+                                    </div>         	
+                                </div>
+                                 <!--robot--> 
+                                <div class="talk_robot clearfix" style="display: block;"> 
+                                    <div class="photo_box"><p class="bg"><img src="images/inteligence_robot.gif"></p><p class="name">机器人</p></div>
+                                        <div class="robot_box  clearfix">
+                                        	<div class="robot">
+                                            <div class="img"></div>
+                                            <div class="middle">
+                                                <div class="menu">
+                                                    <p class="desc1">欢迎使用我要留言功能：</p>
+                                                    <ul class="clearfix">
+                                                        <li><a href="javascript:void(0);" class="showbox">3.我要留言</a></li>
+                                                    </ul>
+                                                </div>
+                                             </div>
+                                         </div>
+                                         <div class="date">2014-02-18 15:07:51</div>
+                                     </div>         	
+                                </div>
+                                <!--robot--> 
+                                <div class="talk_robot clearfix" style="display: block;"> 
+                                    <div class="photo_box"><p class="bg"><img src="images/inteligence_robot.gif"></p><p class="name">机器人</p></div>
+                                        <div class="robot_box  clearfix">
+                                        	<div class="robot">
+                                            <div class="img"></div>
+                                            <div class="middle">
+                                                <div class="talk_con">
+                                                	<p>恭喜你留言成功!</p>
+                                                    <p>你的留言问题编号为：311211，验证码为3137。请妥善保管用于查询留言回复情况。</p>
+                                                </div>
+                                             </div>
+                                         </div>
+                                         <div class="date">2014-02-18 15:07:51</div>
+                                     </div>         	
+                                </div>
+                                <!--visitor--> 
+                                <div class="talk_visitor clearfix" style="display: block;"> 
+                                    <div class="photo_box"><p class="bg"><img src="images/inteligence_me.gif"></p><p class="name">我</p></div>
+                                    <div class="visitor_box  clearfix">
+                                        <div class="visitor">
+                                         <div class="img1"></div>
+                                         <div class="middle">
+                                            <div class="talk_con">
+                                                 我要查询
+                                            </div>
+                                         </div>
+                                         </div>
+                                         <div class="date">2014-02-18 15:07:51</div>
+                                    </div>         	
+                                </div>
+                                 <!--robot-->
+                                 <div class="talk_robot clearfix" style="display: block;"> 
+                                    <div class="photo_box"><p class="bg"><img src="images/inteligence_robot.gif"></p><p class="name">机器人</p></div>
+                                        <div class="robot_box  clearfix">
+                                        	<div class="robot">
+                                            <div class="img"></div>
+                                            <div class="middle">
+                                            	<div class="menu">
+                                                	请在输入框中输入编号验证码，中间用空格隔开，如：311211 3137
+                                                   <!-- <a class="primary-chu primary-color" href="javascript:void(0);">结果查询</a>-->
+                                                </div>
+                                             </div>
+                                         </div>
+                                         <div class="date">2014-02-18 15:07:51</div>
+                                     </div>         	
+                                </div>
+                                <!--visitor--> 
+                                <div class="talk_visitor clearfix" style="display: block;"> 
+                                    <div class="photo_box"><p class="bg"><img src="images/inteligence_me.gif"></p><p class="name">我</p></div>
+                                    <div class="visitor_box  clearfix">
+                                        <div class="visitor">
+                                         <div class="img1"></div>
+                                         <div class="middle">
+                                            <div class="talk_con">
+                                                311211 3137
+                                            </div>
+                                         </div>
+                                         </div>
+                                         <div class="date">2014-02-18 15:07:51</div>
+                                    </div>         	
+                                </div> 
+                                <!--robot-->
+                                 <div class="talk_robot clearfix" style="display: block;"> 
+                                    <div class="photo_box"><p class="bg"><img src="images/inteligence_robot.gif"></p><p class="name">机器人</p></div>
+                                        <div class="robot_box  clearfix">
+                                        	<div class="robot">
+                                            <div class="img"></div>
+                                            <div class="middle">
+                                                <div class="talk_con">
+                                                	<p class="result">	
+                                                     <ul class="guide">
+                                                        <li>你查询的问题是：<a>怎么使用这个？</a><span class="state p-left4 f-12">(处理完毕)</span>
+                                                        	<p><span>答：</span> 闽侯县统计局建筑面积大约550平方米，按照"三定"方案，县统计局设3科1室1中心，即综合统计科、政策法规科…</p>
+                                                        </li>
+                                                        <li>你查询的问题是：<a>怎么使用这个？</a><span class="state p-left4 f-12">(正在处理)</span>
+                                                        <li><a>怎么使用这个？</a><span class="state p-left4 f-12">(正在处理)</span>
+                                                       	<p><span>答：</span> 请内心等待工作人员正在处理</p>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                             </div>
+                                         </div>
+                                         <div class="date">2014-02-18 15:07:51</div>
+                                     </div>         	
+                                </div>
+                                <!--visitor--> 
+                                <div class="talk_visitor clearfix" style="display: block;"> 
+                                    <div class="photo_box"><p class="bg"><img src="images/inteligence_me.gif"></p><p class="name">我</p></div>
+                                    <div class="visitor_box  clearfix">
+                                        <div class="visitor">
+                                         <div class="img1"></div>
+                                         <div class="middle">
+                                            <div class="talk_con">
+                                                 常见问题
+                                            </div>
+                                         </div>
+                                         </div>
+                                         <div class="date">2014-02-18 15:07:51</div>
+                                    </div>         	
+                                </div>
+                                <!--robot-->
+                                 <div class="talk_robot clearfix" style="display: block;"> 
+                                    <div class="photo_box"><p class="bg"><img src="images/inteligence_robot.gif"></p><p class="name">机器人</p></div>
+                                        <div class="robot_box  clearfix">
+                                        	<div class="robot">
+                                            <div class="img"></div>
+                                            <div class="middle">
+                                                <div class="talk_con">
+                                                	<p class="result">常见问题</p>
+                                                    <ul class="pro">
+                                                    	<li><a class="primary-chu primary-color" href="#">怎么购物</a></li>
+                                                        <li><a class="primary-chu primary-color" href="#">能不能送货到家啊</a></li>
+                                                        <li><a class="primary-chu primary-color" href="#">顺风到家门口吗</a></li>
+                                                        <li><a class="primary-chu primary-color" href="#">怎么购物</a></li>
+                                                    </ul>
+                                                </div>
+                                             </div>
+                                         </div>
+                                         <div class="date">2014-02-18 15:07:51</div>
+                                     </div>         	
+                                </div>
+                                <!--visitor--> 
+                                <div class="talk_visitor clearfix" style="display: block;"> 
+                                    <div class="photo_box"><p class="bg"><img src="images/inteligence_me.gif"></p><p class="name">我</p></div>
+                                    <div class="visitor_box  clearfix">
+                                        <div class="visitor">
+                                         <div class="img1"></div>
+                                         <div class="middle">
+                                            <div class="talk_con">
+                                                 怎么购物
+                                            </div>
+                                         </div>
+                                         </div>
+                                         <div class="date">2014-02-18 15:07:51</div>
+                                    </div>         	
+                                </div>
+                                <!--robot-->
+                                 <div class="talk_robot clearfix" style="display: block;"> 
+                                    <div class="photo_box"><p class="bg"><img src="images/inteligence_robot.gif"></p><p class="name">机器人</p></div>
+                                        <div class="robot_box  clearfix">
+                                        	<div class="robot">
+                                            <div class="img"></div>
+                                            <div class="middle">
+                                                <div class="talk_con">
+                                                   	 请你先<a  class="primary-chu primary-color" href="javascript:void(0);" class="showbox1">登入</a>，然后进入商城首页，选择你喜欢的东西哦。。。           
+                                                </div>
+                                             </div>
+                                         </div>
+                                         <div class="date">2014-02-18 15:07:51</div>
+                                     </div>         	
+                                </div>
+                                <!--visitor--> 
+                                <div class="talk_visitor clearfix" style="display: block;"> 
+                                    <div class="photo_box"><p class="bg"><img src="images/inteligence_me.gif"></p><p class="name">我</p></div>
+                                    <div class="visitor_box  clearfix">
+                                        <div class="visitor">
+                                         <div class="img1"></div>
+                                         <div class="middle">
+                                            <div class="talk_con">
+                                                 登入
+                                            </div>
+                                         </div>
+                                         </div>
+                                         <div class="date">2014-02-18 15:07:51</div>
+                                    </div>         	
+                                </div>
+                                <!--robot-->
+                                 <div class="talk_robot clearfix" style="display: block;"> 
+                                    <div class="photo_box"><p class="bg"><img src="images/inteligence_robot.gif"></p><p class="name">机器人</p></div>
+                                        <div class="robot_box  clearfix">
+                                        	<div class="robot">
+                                            <div class="img"></div>
+                                            <div class="middle">
+                                                <div class="talk_con">
+                                                	登入成功！
+                                                </div>
+                                             </div>
+                                         </div>
+                                         <div class="date">2014-02-18 15:07:51</div>
+                                     </div>         	
+                                </div>
+                                <!--visitor--> 
+                                <div class="talk_visitor clearfix" style="display: block;"> 
+                                    <div class="photo_box"><p class="bg"><img src="images/inteligence_me.gif"></p><p class="name">我</p></div>
+                                    <div class="visitor_box  clearfix">
+                                        <div class="visitor">
+                                         <div class="img1"></div>
+                                         <div class="middle">
+                                            <div class="talk_con">
+                                                 阵阵怔怔
+                                            </div>
+                                         </div>
+                                         </div>
+                                         <div class="date">2014-02-18 15:07:51</div>
+                                    </div>         	
+                                </div>
+                                <!--robot-->
+                                 <div class="talk_robot clearfix" style="display: block;"> 
+                                    <div class="photo_box"><p class="bg"><img src="images/inteligence_robot.gif"></p><p class="name">机器人</p></div>
+                                        <div class="robot_box  clearfix">
+                                        	<div class="robot">
+                                            <div class="img"></div>
+                                            <div class="middle">
+                                                <div class="talk_con">
+                                                	<p>很抱歉哦，你问的问题我不是很理解，要不你问问我主人把？<a class="primary-chu primary-color showbox" href="javascript:void(0);">留言咨询</a></p>
+                                                    <p>查看相似问题</p>
+                                                    <ul class="pro">
+                                                    	<li><a class="primary-chu primary-color" href="#">怎么购物</a></li>
+                                                        <li><a class="primary-chu primary-color" href="#">能不能送货到家啊</a></li>
+                                                        <li><a class="primary-chu primary-color" href="#">顺风到家门口吗</a></li>
+                                                        <li><a class="primary-chu primary-color" href="#">怎么购物</a></li>
+                                                    </ul>
+                                                </div>
+                                             </div>
+                                         </div>
+                                         <div class="date">2014-02-18 15:07:51</div>
+                                     </div>         	
+                                </div>
+                            </div> 	
+                            <div class="send_box" id="send_box">
+                            	<div class="evaluate-now hide">
+                                	<p class="dis">您对ERobute刚才的服务感到满意吗？<a class="praise1 button">满意</a><a class="button step1">不满意</a></p>
+                                    <p class="dis-none bad"><span class="unsatisfy_info">您不满意的原因是：</span>
+                                    <label class="label"><input type="radio" value="5" name="1"><span>对流程设计不满意</span></label>
+                                    <label class="label"><input type="radio" value="6" name="1" checked="checked"><span>对ERoubt回答不满意</span></label>
+                                    <label class="label"><input type="radio" value="4" name="1"><span>其他</span></label>
+                                    <a href="" class="submit">提交</a>
+                                    </p>
+                                </div>
+                                <div class="send_line clearfix">
+                                    <input name="historyObject" id="historyObject" type="hidden" value="">
+                                    <div class="send">
+                                      <textarea name="text-in" id="q" onkeydown="query(1);" onfocus="if(value=='限用100字简要描述您的问题，比如“申请办理结婚证的流程”') {value='';this.style.color='#666'}else{this.style.color='#666'};" onblur="if(value=='') {value='限用100字简要描述您的问题，比如“申请办理结婚证的流程”';this.style.color='#888';}else{this.style.color='#666'}" maxlength="150" value="限用100字简要描述您的问题，比如“申请办理结婚证的流程”">限用100字简要描述您的问题，比如“申请办理结婚证的流程”</textarea>
+                                    </div>
+                                    <span class="send_btn"><a onclick="query();"></a></span>
+                                </div> 
+                            </div>                    
+						</div>
+					</div>				
+					<div id="frame_side_info" class="side_info hide-for-small" data-set="data_side">
+						<div id="mod_int" class="int clearfix" tabid="int">
+                        <div class="tab clearfix">	
+                            <ul id="int" class="clearfix">
+                                <li class="on" onclick="CmsTpl.over_tab(this);return false;"><div class="tl"><div class="tr"><div class="tc" dataId="data_int_11"><a href="#" target="_blank">自助工具</a></div></div></div></li>	
+                                <li onclick="CmsTpl.over_tab(this);return false;"><div class="tl"><div class="tr tr1"><div class="tc"><a href="#" target="_blank">常见问题</a></div></div></div></li>
+                                <li onclick="CmsTpl.over_tab(this);return false;"><div class="tl"><div class="tr tr1"><div class="tc"><a href="#" target="_blank">我的问题</a></div></div></div></li>		
+                            </ul>
+                    	</div>
+                        <div id="int-page" class="modcon clearfix">
+                            <div id="frame_int_1" class="clearfix">
+                                <div id="data_int_11">
+                                    <div class="clearfix">
+                                          <div class="menu side" style="text-align: center;">
+                                                <ul class="clearfix">
+                                                    <li><a href="">1.引导体验</a></li>
+                                                    <li><a href="">2.常见问题</a></li>
+                                                    <li><a href="">3.留言咨询</a></li>
+                                                </ul>
+                                          </div>
+                                     </div>
+                                </div>
+                                      
+                                <script>
+                                    CmsTpl.require('moduleJs');
+                                    jQuery('#serivce_search a').click(function(){
+                                        jQuery('#data_int_12').empty().include(jQuery(this).attr('url'), 'search_content');
+                                    });
+                                </script>
+                            </div>
+                            <div id="frame_int_2" style="display:none;" >
+                            <div id="data_int_12">
+                                <cms:datalist tagtype="cms:datalist" htmlid="data_int_12" srctype="cms" select="" tempid="7800000003" keyword="*:*" class="" len="5" filterquery="S_domain:${param.catalogId}" modtype="webSearch" start="1" ordername="pubDate:desc" showfields="id,title,pubDate" func="list" searchfields="" corename="pubDynArticle">
+                                  <div class="infolist clearfix" id="search_content">
+                                    
+                                       <div id="levelmenu"> 
+                                            <div class="unit" id="data_unit_info_1">
+                                                 <h5 class="h5">怎么购物<i class="turn-left"></i></h5>
+                                                 <ul>
+                                                     <li>
+                                                     <span class="con">
+                                                    	<span>答：</span> 闽侯县统计局建筑面积大约550平方米，按照"三定"方案，县统计局设3科1室1中心，即综合统计科、政策法规科…
+                                                     </span>
+                                                     </li>
+                                                 </ul>    
+                                            </div>
+                                            <div class="unit" id="data_unit_info_2">
+                                                <h5 class="h5">能不能送货到家啊<i class="turn-left"></i></h5>
+                                                 <ul>
+                                                     <li>
+                                                     	<span class="con">
+                                                    		<span>答：</span> 您可点击查询京东配送范围，如果您的地址超出配送范围，一般是无法成功提交订单的，还请您谅
+                                                        </span>
+                                                     </li>
+                                                 </ul>                               
+                                             </div>
+                                             <div class="unit" id="data_unit_info_3">
+                                                <h5 class="h5">怎么购物<i class="turn-left"></i></h5>
+                                                 <ul>
+                                                     <li>
+                                                     	<span class="con">
+                                                    		<span>答：</span> 闽侯县统计局建筑面积大约550平方米，按照"三定"方案，县统计局设3科1室1中心，即综合统计科、政策法规科…
+                                                        </span>
+                                                     </li>
+                                                 </ul> 
+                                             </div>
+                                             <div class="unit" id="data_unit_info_4">
+                                                <h5 class="h5">怎么购物<i class="turn-left"></i></h5>
+                                                 <ul>
+                                                     <li>
+                                                         <span class="con">
+                                                            <span>答：</span> 闽侯县统计局建筑面积大约550平方米，按照"三定"方案，县统计局设3科1室1中心，即综合统计科、政策法规科…
+                                                         </span>
+                                                     </li>
+                                                 </ul> 
+                
+                                             </div>
+                        			</div>
+                                      <a class="right look-more" href="wSearch.sp?act=scSearch&domain=${param.catalogId}" target="_blank">查看更多&gt;&gt;</a>
+                                </div>
+                                                            
+                                </cms:datalist>
+                            </div>
+                        </div>							
+                            <div id="frame_int_3" style="display:none;" >
+                            <div id="data_int_22">
+                                <div class="clearfix" style="position:relative;">
+                                	<div class="infolist my-problem clearfix">
+                                    	<div id="levelmenu3"> 
+                                            <div class="unit" id="data_unit_info_5">
+                                                 <h5 class="h5">怎么购物<i class="turn-left"></i></h5><span class="state p-left4 f-12">(已处理)</span>
+                                                 <ul>
+                                                     <li>
+                                                    <span class="con"> 
+                                                    <span>答：</span>闽侯县统计局建筑面积大约550平方米，按照"三定"方案，县统计局设3科1室1中心，即综合统计科、政策法规科…
+                                                    	<form action="" id="" method="post">
+                                                        <div class="goods-comm">
+                                                            <div class="goods-comm-stars">
+                                                                <span class="star_l">满意度评分：</span>
+                                                                <div id="rate-comm-1" class="rate-comm"></div>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                    </span>
+                                                    
+                                                     </li>
+                                                 </ul>    
+                                            </div>
+                                            <div class="unit" id="data_unit_info_6">
+                                                <h5 class="h5">能不能送货到家啊<i class="turn-left"></i></h5><span class="state p-left4 f-12">(正在处理)</span>
+                                                 <ul>
+                                                     <li>
+                                                     	<span class="con"> 
+                                                    		<span>答：</span> 您可点击查询京东配送范围，如果您的地址超出配送范围，一般是无法成功提交订单的，还请您谅
+                                                        </span>
+                                                     </li>
+                                                 </ul>                               
+                                             </div>
+                                             <div class="unit" id="data_unit_info_7">
+                                                <h5 class="h5">怎么购物<i class="turn-left"></i></h5><span class="state p-left4 f-12">(已处理)</span>
+                                                 <ul>
+                                                     <li>
+                                                     	 <span class="con"> 
+                                                    		<span>答：</span> 闽侯县统计局建筑面积大约550平方米，按照"三定"方案，县统计局设3科1室1中心，即综合统计科、政策法规科…
+                                                         </span>
+                                                     </li>
+                                                 </ul> 
+                                             </div>
+                                             <div class="unit" id="data_unit_info_8">
+                                                <h5 class="h5">怎么购物<i class="turn-left"></i></h5><span class="state p-left4 f-12">(已处理)</span>
+                                                 <ul>
+                                                     <li>
+                                                     	 <span class="con"> 
+                                                    		<span>答：</span> 闽侯县统计局建筑面积大约550平方米，按照"三定"方案，县统计局设3科1室1中心，即综合统计科、政策法规科…
+                                                         </span>
+                                                     </li>
+                                                 </ul> 
+                
+                                             </div>
+                                        </div>
+                                      <a class="right look-more" href="wSearch.sp?act=scSearch&domain=${param.catalogId}" target="_blank">查看更多&gt;&gt;</a>
+                                      
+                                </div>
+                                </div>                           
+                            </div>
+                        </div>
+                        </div> 
+                    </div>
+					</div>
+				</div>
+			</div>
+		</div>	
+		<div id="frame_footer" class="footer">		
+			<div id="data_coyyright" class="copyright">
+				中共福建省委组织部党员综合管理平台
+			</div>
+		</div>
+	</div>
+
+</div>
+
+<!--[if lte IE 11]>
+<script  type="text/javascript">
+		var clientwidth=document.documentElement.clientWidth;
+		$(window).ready(function(){
+			var height=document.documentElement.clientHeight;
+			$('#frame_main').css('height',height-88);
+			$('#talk_box').css('height',height-238);	
+        });
+        $(window).resize(function(){
+            var height=document.documentElement.clientHeight;
+            $('#frame_main').css('height',height-88);
+            $('#talk_box').css('height',height-238);
+        });
+</script>
+<![endif]-->
+<script type="text/javascript">
+	var ua = navigator.userAgent.toLowerCase();
+	var isIE = ua.indexOf("msie")>-1;
+	if(!isIE){
+		$('.wap_logo').css({"position":"absolute","left":"0","right":"0","z-index":"100"});
+		$('.main').css({"padding":"64px 0 22px 0"});
+	}
+	$(function(){
+		$('#mod_int').appendAround();
+	});
+</script>
+<script type="text/javascript">
+	var eleList = ["levelmenu","levelmenu1","levelmenu2","levelmenu3"];
+	
+	function getEle(arrayId){
+		return document.getElementById(arrayId);	
+	}
+	for(var i = 0; i < eleList.length; i++){
+		init(getEle(eleList[i]));
+		//console.log(eleList[i]);
+	}
+	
+	function init(arrayDiv){
+	/* if(!document.getElementById || !document.getElementsByTagName){retun;}
+	var arrayDiv=document.getElementById("levelmenu");
+	var arrayDiv1=document.getElementById("levelmenu1");*/
+	if(!arrayDiv){return;}
+	 var divObj=arrayDiv.getElementsByTagName("div");
+	var length=divObj.length;
+	 var agreeDiv=new Array();
+	 for(var i=0;i<length;i++){
+	if(divObj[i].className.indexOf("unit")>=0){
+	 agreeDiv.push(divObj[i]);
+	 divObj[i].onclick=function(event){
+	 showCurrentMenu(agreeDiv,this,event);
+	 }
+	 }
+	 }
+	}
+	function showCurrentMenu(agreeDiv,currentObj,event){
+	if(!event){event=window.event;}
+	var eventObj=event.srcElement?event.srcElement:event.target;
+	 //先隐藏所有ul
+	 var length=agreeDiv.length;
+	for(var i=0;i<length;i++){
+	if(eventObj.parentNode==agreeDiv[i] || eventObj.nodeName!="H5"){continue;}
+	 agreeDiv[i].className="unit";
+	 }
+	if(eventObj.nodeName=="H5"){
+	if(eventObj.parentNode.className=="unit"){
+	 eventObj.parentNode.className="unit current"
+	 }else{
+	eventObj.parentNode.className="unit"
+	}
+	}
+	}
+	init();
+	</script>
+<script type="text/javascript">
+	var clientwidth=document.documentElement.clientWidth;
+	if(clientwidth>640){
+
+	
+}else{
+	/*弹出层*/
+	$(function(){
+		
+		$(".showbox").click(function(){
+			$("#TB_overlayBG").css({
+				display:"block",height:$(document).height()
+			});
+			$(".box").css({
+				left:5+"%",
+				top:40+"px",
+				right:5+"%",
+				display:"block"
+			});
+		});
+		$(".showbox1").click(function(){
+			$("#TB_overlayBG").css({
+				display:"block",height:$(document).height()
+			});
+			$(".box1").css({
+				left:5+"%",
+				top:40+"px",
+				right:5+"%",
+				display:"block"
+			});
+		});
+		
+		$(".close").click(function(){
+			$("#TB_overlayBG").css("display","none");
+			$(".box ").css("display","none");
+			$(".box1 ").css("display","none");
+		});
+		$('#TB_overlayBG').click(function(){
+			$("#TB_overlayBG").css("display","none");
+			$(".box ").css("display","none");
+			$(".box1 ").css("display","none");
+		});
+		
+	});
+	
+	var a=$('#send_box').find('.evaluate-now');
+	var b=a.find('.dis').find('.step1');
+	b.click(function(){
+		a.find('.dis').addClass('dis-none');
+		a.find('.bad').removeClass('dis-none');	
+		$('.evaluate-now').css("top","-55px");	 
+	})
+}
+	var bs=$('#frame_header').find('.bs-window');
+	bs.click(function(){
+	$(this).toggleClass('bs');
+	$('#frame_main').toggleClass('width');
+	$('#frame_main').toggleClass('maxwidth');
+	$('#data_wap_logo').toggleClass('maxwidth');	
+	});
+	$('#more_btn1').click(function(e){
+		var x=$('.more_info1');
+		x.toggleClass('dis-block');
+		if(x.hasClass('dis-block')){
+			this.innerHTML='收起<i class="arrow_down arrow_up1"></i>';		
+		}
+		else{
+			this.innerHTML='查看详细信息<i class="arrow_down"></i>';
+		}
+		
+	});
+	$('#more_btn').click(function(e){
+		var x=$('#weather_detail');
+		x.toggleClass('dis-block');
+		if(x.hasClass('dis-block')){
+			this.innerHTML='收起<i class="arrow_down arrow_up1"></i>';		
+		}
+		else{
+			this.innerHTML='查看详细信息<i class="arrow_down"></i>';
+		}
+		
+	});
+	$('.cl-window').click(function(){
+		if (navigator.userAgent.indexOf("MSIE") > 0) {
+			if (navigator.userAgent.indexOf("MSIE 6.0") > 0) {
+				window.opener = null;
+				window.close();
+			} else {
+				window.open('', '_top');
+				window.top.close();
+			}
+		}else if (navigator.userAgent.indexOf("Firefox") > 0) {
+			window.location.href = 'about:blank ';
+		} else {
+			window.opener = null;
+			window.open('', '_self', '');
+			window.close();
+		} 	
+	});
+	
+	var a=$('#send_box').find('.evaluate-now');
+	var b=a.find('.dis').find('.step1');
+	b.click(function(){
+		a.find('.dis').addClass('dis-none');
+		a.find('.bad').removeClass('dis-none');	
+	})
+	
+	/*登入切换*/
+	$(".tellphone").click(function(){
+		if($(this).attr("title")=="手机验证登入"){
+			$(this).attr("title","普通方式登入");
+			this.innerHTML='普通方式登入<img src="images/user.png" />'
+			$('.regular').slideUp('fast');
+			$('.tell').slideDown('fast');
+			
+			
+		}else{
+			$(this).attr("title","手机验证登入");
+			this.innerHTML='手机验证登入<img src="images/reg-5.png" /> '
+			$('.regular').slideDown('fast');
+			$('.tell').slideUp('fast');
+		}
+	});
+</script> 
+<script type="text/javascript">
+   $(function () {
+	 $('#btn-get-password').click(function () {
+	   var count = 60;
+	   var countdown = setInterval(CountDown, 1000);
+	   function CountDown() {
+		 $("#btn-get-password").attr("disabled", true);
+		 $("#btn-get-password").val('重新获取（'+count + "）");
+		 $("#btn-get-password").css({'background':'#f0f3f5','color':'#c9c9ca','border':'1px solid #c9c9ca','cursor':'not-allowed'});
+		 if (count == 0) {
+		   $("#btn-get-password").val("重新获取验证码").removeAttr("disabled");
+
+		   clearInterval(countdown);
+		 }
+		 count--;
+	   }
+	 })
+   });
+ </script>
+	<!--[if IE 6]>
+    <script src="javascript/DD_belatedPNG.js" mce_src="javascript/DD_belatedPNG.js"></script>   
+    <script type="text/javascript">     
+     DD_belatedPNG.fix('.arrow_down,.arrow_up1,.img,.img1.slider_play,.pic_intro .piclist .pictit,#weather_icon.#weather_icon_1,#weather_icon_2,#weather_icon_3');  
+    </script> 
+<![endif]--> 
+</body></html>

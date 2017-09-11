@@ -1,0 +1,85 @@
+
+/* 全局样式 */
+
+body, div, h1, h2, h3, h4, h5, h6, p, blockquote, dl, dt, dd, ul, ol, li, fieldset, form, center{ padding:0; margin:0 }
+img { border:0; }
+button,input,select,textarea{ font-size:12px; padding:0; margin:0; }
+li{ list-style:none; }
+h1, h2, h3, h4, h5, h6 { font-size: 100%; }
+em { font-style:normal; }
+
+/* 基础设置 */
+
+body{ font:12px Simsun,"宋体",Arial,verdana; color:#333; line-height:200%; }
+.left, .center{ float:left; }
+.right { float:right; }
+
+.clearfix:after{ content:""; height:0; visibility:hidden; display:block; clear:both;}
+.clearfix{ zoom:1;}
+.clear { clear:both; }
+
+.nobr{overflow:hidden;white-space:nowrap;word-break:keep-all;}
+.elps{ width:100%; overflow:hidden; white-space:nowrap; word-break:keep-all; text-overflow:ellipsis;}
+
+.unselectable {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+.df-f12{font:12px Simsun,Tahoma,verdana;}
+.pointer{cursor:pointer!important;}
+.df-cn,.df-cn FONT{line-height:150%;}
+.df-white{background:white}
+
+.df-bd-mid {border:1px solid #ccc;}
+.df-bd-dashed{border-style:dashed!important;}
+.df-bd-notop{border-top:0!important}
+.df-bd-noright{border-right:0!important}
+.df-bd-nobottom{border-bottom:0!important}
+.df-bd-noleft{border-left:0!important}
+
+.df-bd-onlytop{border-width:1px 0 0 0!important}
+.df-bd-onlyright{border-width:0 1px 0 0!important}
+.df-bd-onlybottom{border-width:0 0 1px 0!important}
+.df-bd-onlyleft{border-width:0 0 0 1px!important}
+
+/* 提示框 */
+.tip-tl{padding-left:6px;overflow:hidden;background:url(../css/vista/lightblue/g/tip-x.gif) no-repeat 0px 0px}
+.tip-tr{padding-right:6px;overflow:hidden;background:url(../css/vista/lightblue/g/tip-x.gif) no-repeat right 0px}
+.tip-tc{height:3px;overflow:hidden;background:url(../css/vista/lightblue/g/tip-x.gif) repeat-x 0px -17px}
+.tip-bl{padding-left:6px;overflow:hidden;background:url(../css/vista/lightblue/g/tip-x.gif) no-repeat 0px -10px}
+.tip-br{padding-right:6px;overflow:hidden;background:url(../css/vista/lightblue/g/tip-x.gif) no-repeat right -10px}
+.tip-bc{height:3px;overflow:hidden;background:url(../css/vista/lightblue/g/tip-x.gif) repeat-x 0px -31px}
+.tip-ml{padding-left:6px;background:url(../css/vista/lightblue/g/tip-y.gif) repeat-y 0px 0px}
+.tip-mr{padding-right:6px;background:url(../css/vista/lightblue/g/tip-y.gif) repeat-y right top}
+.tip-mc{padding:3px 1px;overflow:hidden;background:#e9f2ff}
+
+.cmspage{ margin:0px auto; text-align:left; }
+[id^="draw-"][id$="-cont"] .cmspage { background: white; }
+.cmspage .cgi{} /* background-color: #FFE8F1 */
+.cmspage .cgitbl{ table-layout:fixed; width:100%; border-collapse:collapse }
+/*.cmspage .modmore, .cmspage .nsgmore{ height:100%; }*/
+.cmspage .tab .tabtitle{float:left;}
+.cmspage .tab .tabmore{float:right;}
+.cmspage .modhead{overflow:hidden;}
+
+.cmspage .sys_mp {margin: 5px 5px 0 5px};
+
+/* 系统翻页 */
+.cms_page1 {font:normal normal normal 100%/200% Verdana;}
+.cms_page1 a { padding:0px 4px; }
+.cms_page1 a:link,.page1 a:visited { color:#000; }
+.cms_page1 span.current { color:#666; margin:0px 2px; padding:2px 3px; min-width:10px; }
+.cms_page1 input { margin:0 1px; }
+.cms_page1 .currentPage em { color:#900; }
+.cms_page1 .jumpButton { width:28px; padding:0; }
+.cms_page1 .jumpText { padding:0; height:16px; width:25px; }
+
+.mxtbl td{ padding:3px 6px 0 3px }
+
+/* 系统导航栏 */
+/*.cms_curpage { padding:1px; }*/
+
+/*位置导航*/
+.pos_nav { float: left; margin:0 6px;}

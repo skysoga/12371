@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<tempSuite>
+  <tempSuiteId>7800000002</tempSuiteId>
+  <tempSuiteName><![CDATA[智能服务平台]]></tempSuiteName>
+  <tempSuiteDesc><![CDATA[智能服务平台]]></tempSuiteDesc>
+  <tempSuiteCode>7800000002</tempSuiteCode>
+  <tempSuiteVersion>1.0</tempSuiteVersion>
+  <tempSuiteAuthor>00000001</tempSuiteAuthor>
+  <template>
+    <tempId>7800000003</tempId>
+    <tempName><![CDATA[智能服务平台]]></tempName>
+    <tempType>index</tempType>
+    <tempExt><![CDATA[jsp]]></tempExt>
+    <fileName><![CDATA[inteligence.html]]></fileName>
+    <tempDesc/>
+    <tempText/>
+  </template>
+</tempSuite>
